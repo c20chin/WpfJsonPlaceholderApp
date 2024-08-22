@@ -61,7 +61,9 @@ namespace WpfJsonPlaceholderApp
                     Width = buttonSize,
                     Height = buttonSize,
                     Margin = new Thickness(2),
-                    FontSize = 16
+                    FontSize = 16,
+                    Background = Brushes.SlateGray,
+                    Foreground = Brushes.White,
                 };
                 btn.Click += PostButton_Click;
 

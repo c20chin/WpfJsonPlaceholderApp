@@ -6,14 +6,38 @@
         xmlns:local="clr-namespace:WpfJsonPlaceholderApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="800" SizeToContent="WidthAndHeight"
-        ResizeMode="CanResize">
+        ResizeMode="CanResize" Background="DarkSlateGray">
+
+    <Window.Resources>
+        <!-- Define a style for buttons -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="SlateGray"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="BorderElement"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="BorderElement" Property="Background" Value="#8799ab"/>
+                                <!-- Hover background color -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
     <Grid>
         <StackPanel>
             <!-- Title TextBlock -->
             <TextBlock Name="TitleTextBlock" Text="You are looking at Id" 
            FontSize="18" FontWeight="Light" 
-           HorizontalAlignment="Center" Margin="10"/>
+           HorizontalAlignment="Center" Margin="10" Foreground="White"/>
 
             <!-- ScrollViewer to ensure grid stays within window -->
             <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
