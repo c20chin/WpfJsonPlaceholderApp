@@ -5,12 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfJsonPlaceholderApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="111*"/>
-            <ColumnDefinition Width="689*"/>
-        </Grid.ColumnDefinitions>
+        Title="MainWindow" Height="500" Width="800" SizeToContent="WidthAndHeight"
+        ResizeMode="CanResize">
 
+    <Grid>
+        <StackPanel>
+            <!-- Title TextBlock -->
+            <TextBlock Name="TitleTextBlock" Text="You are looking at Id" 
+           FontSize="18" FontWeight="Light" 
+           HorizontalAlignment="Center" Margin="10"/>
+
+            <!-- ScrollViewer to ensure grid stays within window -->
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <!-- UniformGrid for the buttons -->
+                <UniformGrid Name="PostsGrid" Margin="10" Rows="10" Columns="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </ScrollViewer>
+        </StackPanel>        
     </Grid>
 </Window>
