@@ -54,7 +54,6 @@ https://github.com/user-attachments/assets/1777bba5-bbec-4acd-8b8f-45ee461cbf53
 ### UI/UX
 
 - **Title**: Displays "You are looking at Id" or "You are looking at UserId" based on the current display mode.
-- **ScrollViewer**: Ensures that the grid of buttons remains within the window and allows scrolling if needed.
 - **Styling**: Buttons have hover and click animations for a polished user experience.
 
 ## Code Structure
