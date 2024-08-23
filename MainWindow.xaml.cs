@@ -47,6 +47,12 @@ namespace WpfJsonPlaceholderApp
 
         private void DisplayPosts()
         {
+            if (posts == null || posts.Count == 0)
+            {
+                MessageBox.Show("No posts to display.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
             PostsGrid.Children.Clear();
 
             double buttonSize = Math.Min((ActualWidth -38) / 11, (ActualHeight-38) / 11);  // Calculate button size based on window size
@@ -64,6 +70,7 @@ namespace WpfJsonPlaceholderApp
                     FontSize = 16,
                     Background = Brushes.SlateGray,
                     Foreground = Brushes.White,
+                    ToolTip = $"Post ID: {post.Id}",
                 };
                 btn.Click += PostButton_Click;
 

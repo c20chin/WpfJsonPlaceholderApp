@@ -11,7 +11,19 @@
     <Window.Resources>
         <!-- Define a style for buttons -->
         <Style TargetType="Button">
-            <Setter Property="Background" Value="SlateGray"/>
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="SlateGray"/>
+                    <!-- Non-frozen brush -->
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <SolidColorBrush Color="White"/>
+                    <!-- Non-frozen brush -->
+                </Setter.Value>
+            </Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -21,10 +33,43 @@
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                         <ControlTemplate.Triggers>
+                            <!-- Hover Trigger -->
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="BorderElement" Property="Background" Value="#8799ab"/>
-                                <!-- Hover background color -->
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <!-- Change color on hover -->
+                                            <ColorAnimation Storyboard.TargetName="BorderElement"
+                                                Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                To="#8799ab"
+                                                Duration="0:0:0.3" />
+                                            <!-- Change back to the original color -->
+                                            <ColorAnimation Storyboard.TargetName="BorderElement"
+                                                Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                To="SlateGray"
+                                                BeginTime="0:0:0.5" Duration="0:0:0.5" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <!-- Hover background color #8799ab -->
                             </Trigger>
+                            <!-- Click Color Change Trigger-->
+                            <EventTrigger RoutedEvent="Button.Click">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <!-- Change color on click -->
+                                        <ColorAnimation Storyboard.TargetName="BorderElement"
+                                                    Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                    To="#AB8799"
+                                                    Duration="0:0:0.5" />
+                                        <!-- Change back to the original color -->
+                                        <ColorAnimation Storyboard.TargetName="BorderElement"
+                                                    Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                    To="SlateGray"
+                                                    BeginTime="0:0:0.8" Duration="0:0:0.5" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
