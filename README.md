@@ -2,7 +2,7 @@
 
 ## Overview
 
-This WPF (Windows Presentation Foundation) application fetches and displays 100 posts from the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/posts). The application presents each post in a square button arranged in a 10x10 grid. Users can toggle between viewing post IDs and user IDs by clicking on any button.
+This WPF (Windows Presentation Foundation) application fetches and displays 100 posts from the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/). The application presents each post in a square button arranged in a 10x10 grid. Users can toggle between viewing post IDs and user IDs by clicking on any button.
 
 ## Features
 
@@ -11,6 +11,10 @@ This WPF (Windows Presentation Foundation) application fetches and displays 100 
 - Clicking a button toggles the display between post IDs and user IDs.
 - Responsive layout that adjusts button size based on window size.
 - Smooth animations for button color changes on hover and click.
+
+## App Demo
+https://github.com/user-attachments/assets/1777bba5-bbec-4acd-8b8f-45ee461cbf53
+
 
 ## Getting Started
 
@@ -40,7 +44,7 @@ This WPF (Windows Presentation Foundation) application fetches and displays 100 
 ### Usage
 
 1. **Viewing Posts**:
-    - The application will display 100 posts in a 10x10 grid.
+    - The application will [display 100 posts](https://jsonplaceholder.typicode.com/posts) in a 10x10 grid.
     - Each button represents a post and initially displays the post ID.
 
 2. **Toggling Between ID and User ID**:
